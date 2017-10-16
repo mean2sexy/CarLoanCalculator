@@ -36,7 +36,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ลงทะเบียนครั้งแรก"/>
                                 <connections>
-                                    <segue destination="RBY-7o-Z1Z" kind="show" id="6Ix-gN-zIg"/>
+                                    <segue destination="RBY-7o-Z1Z" kind="show" identifier="goToRegister" id="6Ix-gN-zIg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WJ-0p-adZ">
@@ -44,17 +44,22 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ล๊อคอิน"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" action="showViewController:sender:" id="InH-Xs-leQ"/>
+                                    <action selector="loginButtonPressed:" destination="OI6-kl-MeW" eventType="touchUpInside" id="sxI-Mk-VP7"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="a8D-0u-aGa"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="fuB-28-z1S" id="dwU-0d-re0"/>
+                        <outlet property="passwordTextField" destination="IeV-hQ-vaM" id="aYf-4V-Rmj"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToCalculator" id="Mh6-aM-tUD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rR8-LE-atC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-733.33333333333337" y="131.25"/>
+            <point key="canvasLocation" x="-1864" y="131"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="hgK-fH-z8w">
@@ -65,11 +70,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6s-UW-9qa">
-                                <rect key="frame" x="175" y="621" width="65" height="30"/>
+                                <rect key="frame" x="175" y="621" width="65" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ลงทะเบียน"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Zu1-4A-FNd"/>
+                                    <action selector="registerButtonPressed:" destination="RBY-7o-Z1Z" eventType="touchUpInside" id="HNG-io-yAA"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vPM-MY-k04">
@@ -84,7 +89,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ชื่อ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wJC-4C-yZv">
                                 <rect key="frame" x="43" y="251" width="329" height="30"/>
@@ -114,15 +119,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="อีเมล" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xkr-wi-o85">
-                                <rect key="frame" x="43" y="478" width="329" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ไลน์ไอดี" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-ny-XDH">
-                                <rect key="frame" x="43" y="536" width="329" height="30"/>
+                                <rect key="frame" x="43" y="480" width="329" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -132,10 +130,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="q6F-Yi-bJf"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="vPM-MY-k04" id="zEB-OI-0QX"/>
+                        <outlet property="firstNameTextField" destination="wJC-4C-yZv" id="bnN-FP-QRp"/>
+                        <outlet property="lastNameTextField" destination="lbo-rs-RC9" id="fPI-bO-9YF"/>
+                        <outlet property="lineIdTextField" destination="aZ1-ny-XDH" id="fDS-37-Mky"/>
+                        <outlet property="nickNameTextField" destination="2om-IG-7ZY" id="yEq-An-V2A"/>
+                        <outlet property="passwordTextField" destination="jdo-ls-ISt" id="rQI-rT-dTh"/>
+                        <outlet property="telephoneTextField" destination="wZw-dM-OU3" id="gqU-hT-eLj"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToCalculator" id="m1X-CB-3kW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FxT-2h-mwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-733.33333333333337" y="913.85869565217399"/>
+            <point key="canvasLocation" x="-1864" y="918"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -441,6 +449,6 @@
         <image name="result" width="59" height="34"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="InH-Xs-leQ"/>
+        <segue reference="Mh6-aM-tUD"/>
     </inferredMetricsTieBreakers>
 </document>

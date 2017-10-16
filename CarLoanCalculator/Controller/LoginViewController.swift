@@ -7,9 +7,32 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
+        
+        //TODO: Login the user
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            
+            if error != nil {
+                print(error!)
+            }
+            else{
+                print("Login Successful")
+                
+                self.performSegue(withIdentifier: "goToCalculator", sender: self)
+                
+            }
+        }
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

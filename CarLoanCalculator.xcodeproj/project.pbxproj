@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4736F1A6F233FC08523FD57E /* Pods_CarLoanCalculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83398BA134B4649BE0EF24C /* Pods_CarLoanCalculator.framework */; };
+		74065F501F94B0C900E1399D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 742F95011F94AFA30056E5EE /* GoogleService-Info.plist */; };
 		7407C6EB1F7BCCD7004E5724 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7407C6EA1F7BCCD7004E5724 /* AppDelegate.swift */; };
 		7407C6ED1F7BCCD7004E5724 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7407C6EC1F7BCCD7004E5724 /* ViewController.swift */; };
 		7407C6F01F7BCCD7004E5724 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7407C6EE1F7BCCD7004E5724 /* Main.storyboard */; };
@@ -27,9 +29,13 @@
 		7407C6F41F7BCCD7004E5724 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7407C6F61F7BCCD7004E5724 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7407C6FD1F7BCF81004E5724 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		742F95011F94AFA30056E5EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		744616B51F811A2D009F41D7 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		745D48161F920352006ABA80 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		745D48181F92054E006ABA80 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		78C91D72D4850C95F3B0E8AB /* Pods-CarLoanCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarLoanCalculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarLoanCalculator/Pods-CarLoanCalculator.debug.xcconfig"; sourceTree = "<group>"; };
+		C8C77DEF856B37D18A415B08 /* Pods-CarLoanCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarLoanCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarLoanCalculator/Pods-CarLoanCalculator.release.xcconfig"; sourceTree = "<group>"; };
+		D83398BA134B4649BE0EF24C /* Pods_CarLoanCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarLoanCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4736F1A6F233FC08523FD57E /* Pods_CarLoanCalculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +55,8 @@
 			children = (
 				7407C6E91F7BCCD7004E5724 /* CarLoanCalculator */,
 				7407C6E81F7BCCD7004E5724 /* Products */,
+				C12FC88D41333AAF6FF07167 /* Pods */,
+				C46631FF223F8A7471CF0140 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +78,7 @@
 				7407C6F11F7BCCD7004E5724 /* Assets.xcassets */,
 				7407C6F31F7BCCD7004E5724 /* LaunchScreen.storyboard */,
 				7407C6F61F7BCCD7004E5724 /* Info.plist */,
+				742F95011F94AFA30056E5EE /* GoogleService-Info.plist */,
 			);
 			path = CarLoanCalculator;
 			sourceTree = "<group>";
@@ -92,6 +102,23 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		C12FC88D41333AAF6FF07167 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				78C91D72D4850C95F3B0E8AB /* Pods-CarLoanCalculator.debug.xcconfig */,
+				C8C77DEF856B37D18A415B08 /* Pods-CarLoanCalculator.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C46631FF223F8A7471CF0140 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D83398BA134B4649BE0EF24C /* Pods_CarLoanCalculator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,9 +126,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7407C6F91F7BCCD7004E5724 /* Build configuration list for PBXNativeTarget "CarLoanCalculator" */;
 			buildPhases = (
+				F5FB31761A50A39537AD74D5 /* [CP] Check Pods Manifest.lock */,
 				7407C6E31F7BCCD7004E5724 /* Sources */,
 				7407C6E41F7BCCD7004E5724 /* Frameworks */,
 				7407C6E51F7BCCD7004E5724 /* Resources */,
+				BC937504C57421F61A831448 /* [CP] Embed Pods Frameworks */,
+				FACEC3016A3A0EC85FAD1540 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,12 +182,75 @@
 			buildActionMask = 2147483647;
 			files = (
 				7407C6F51F7BCCD7004E5724 /* LaunchScreen.storyboard in Resources */,
+				74065F501F94B0C900E1399D /* GoogleService-Info.plist in Resources */,
 				7407C6F21F7BCCD7004E5724 /* Assets.xcassets in Resources */,
 				7407C6F01F7BCCD7004E5724 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BC937504C57421F61A831448 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CarLoanCalculator/Pods-CarLoanCalculator-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarLoanCalculator/Pods-CarLoanCalculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5FB31761A50A39537AD74D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CarLoanCalculator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FACEC3016A3A0EC85FAD1540 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarLoanCalculator/Pods-CarLoanCalculator-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7407C6E31F7BCCD7004E5724 /* Sources */ = {
@@ -304,6 +397,7 @@
 		};
 		7407C6FA1F7BCCD7004E5724 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78C91D72D4850C95F3B0E8AB /* Pods-CarLoanCalculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -319,6 +413,7 @@
 		};
 		7407C6FB1F7BCCD7004E5724 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8C77DEF856B37D18A415B08 /* Pods-CarLoanCalculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

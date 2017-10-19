@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ResultViewController: UIViewController {
 
@@ -16,6 +17,14 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var downPaymentAmountLabel: UILabel!
     @IBOutlet weak var financingAmountLabel: UILabel!
     @IBOutlet weak var installmentLabel: UILabel!
+    
+    @IBOutlet weak var firstnameLabel: UILabel!
+    @IBOutlet weak var telephoneLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var lineidLabel: UILabel!
+    
+    
+    
     
     var textPassedOver : String?
     var result : Car?
@@ -27,13 +36,13 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //resultLabel.text = textPassedOver
         
-        //result!.calculatePaymentPerMonth()
-        //result!.calculateSabuyDPaymentPerMonth()
-        //print("\(result!.paymentPerMonth)")
+        displayResult()
+        displaySalesman()
         
-        
+    }
+
+    func displayResult(){
         numberformatter.numberStyle = NumberFormatter.Style.decimal
         
         
@@ -44,10 +53,35 @@ class ResultViewController: UIViewController {
         downPaymentAmountLabel.text = numberformatter.string(from: NSNumber(value:result!.downPaymentAmount))
         financingAmountLabel.text = numberformatter.string(from: NSNumber(value:result!.financingAmount))
         installmentLabel.text = "\(result!.installment * 12)"
+    }
+    
+    func displaySalesman() {
         
+        if Auth.auth().currentUser?.uid == nil {
+            print("User is not login")
+        }
+        else{
+            print("User is already login")
+            let uid = Auth.auth().currentUser?.uid
+            Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String: AnyObject]{
+                    self.firstnameLabel.text = (dictionary["firstname"] as? String)! + " "
+                    self.firstnameLabel.text?.append((dictionary["lastname"] as? String)! + " (")
+                    self.firstnameLabel.text?.append((dictionary["nickname"] as? String)! + ")")
+                    
+                    self.telephoneLabel.text = dictionary["telephone"] as? String
+                    self.emailLabel.text = dictionary["email"] as? String
+                    self.lineidLabel.text = dictionary["lineid"] as? String
+                    
+                }
+                
+            }, withCancel: nil)
+        }
         
     }
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

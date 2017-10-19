@@ -31,6 +31,8 @@ class ViewController: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
             sabuydFlag = true
             periods = [4,5]
             self.periodPickerView.reloadAllComponents()
+            self.periodPickerView.selectRow(0, inComponent: 0, animated: true)
+            car.installment = periods[0]
         }
         else {
             rvTextField.isHidden = true
@@ -38,6 +40,8 @@ class ViewController: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
             sabuydFlag = false
             periods = [1,2,3,4,5,6,7]
             self.periodPickerView.reloadAllComponents()
+            self.periodPickerView.selectRow(0, inComponent: 0, animated: true)
+            car.installment = periods[0]
         }
     }
     
@@ -66,6 +70,8 @@ class ViewController: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         
         rvTextField.isHidden = true
         rvLabel.isHidden = true
+        
+        car.installment = periods[0]
         
         
     }
@@ -161,7 +167,7 @@ class ViewController: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
             
             let destinationVC = segue.destination as! ResultViewController
             
-            destinationVC.textPassedOver = "\(car.paymentPerMonth)"
+            //destinationVC.textPassedOver = "\(car.paymentPerMonth)"
             destinationVC.result = car
             
         }
@@ -187,10 +193,12 @@ class ViewController: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(periods[row])
         
-            car.installment = periods[row]
+        
+        print(periods[row])
+        car.installment = periods[row]
         
     }
+
 }
 

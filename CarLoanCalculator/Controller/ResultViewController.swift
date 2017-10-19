@@ -23,10 +23,6 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var lineidLabel: UILabel!
     
-    
-    
-    
-    var textPassedOver : String?
     var result : Car?
     
     let numberformatter = NumberFormatter()
@@ -43,6 +39,8 @@ class ResultViewController: UIViewController {
     }
 
     func displayResult(){
+        
+        //Initiate Formatter
         numberformatter.numberStyle = NumberFormatter.Style.decimal
         
         

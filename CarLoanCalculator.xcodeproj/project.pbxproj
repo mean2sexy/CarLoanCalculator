@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4736F1A6F233FC08523FD57E /* Pods_CarLoanCalculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83398BA134B4649BE0EF24C /* Pods_CarLoanCalculator.framework */; };
+		4736F1A6F233FC08523FD57E /* Pods_CarLoanCalculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83398BA134B4649BE0EF24C /* Pods_CarLoanCalculator.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		74065F501F94B0C900E1399D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 742F95011F94AFA30056E5EE /* GoogleService-Info.plist */; };
 		7407C6EB1F7BCCD7004E5724 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7407C6EA1F7BCCD7004E5724 /* AppDelegate.swift */; };
 		7407C6ED1F7BCCD7004E5724 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7407C6EC1F7BCCD7004E5724 /* ViewController.swift */; };

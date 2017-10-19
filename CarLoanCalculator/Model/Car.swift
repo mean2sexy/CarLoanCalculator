@@ -42,6 +42,7 @@ class Car{
     func calculatePaymentPerMonth() {
         
         calculateFinancingAmount()
+        print("Installment = \(installment)")
         
         paymentPerMonth = (financingAmount + (financingAmount * (interestRate/100) * Double(installment)))/Double(installment * 12)
     }
@@ -54,6 +55,7 @@ class Car{
         let rvAmount = (carPrice * rvPercentage/100)
         
         print("RV = \(rvAmount)")
+        print("Installment = \(installment)")
         
         paymentPerMonth = ((financingAmount + (financingAmount * (interestRate/100) * Double(installment))) - rvAmount)/(Double(installment * 12)-1)
     }

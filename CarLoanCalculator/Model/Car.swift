@@ -19,6 +19,8 @@ class Car{
     var installment : Int //งวดชำระ
     
     var rv : Double = 0
+    var sabuydFlag : Bool = false
+    var rvAmount : Double = 0
     
     init(){
         self.carPrice = 0
@@ -44,6 +46,8 @@ class Car{
         calculateFinancingAmount()
         print("Installment = \(installment)")
         
+        sabuydFlag = false
+        
         paymentPerMonth = (financingAmount + (financingAmount * (interestRate/100) * Double(installment)))/Double(installment * 12)
     }
     
@@ -52,7 +56,8 @@ class Car{
         calculateFinancingAmount()
         
         let rvPercentage = self.rv
-        let rvAmount = (carPrice * rvPercentage/100)
+        rvAmount = (carPrice * rvPercentage/100)
+        sabuydFlag = true
         
         print("RV = \(rvAmount)")
         print("Installment = \(installment)")

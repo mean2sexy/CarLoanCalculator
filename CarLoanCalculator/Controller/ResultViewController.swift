@@ -17,6 +17,9 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var downPaymentAmountLabel: UILabel!
     @IBOutlet weak var financingAmountLabel: UILabel!
     @IBOutlet weak var installmentLabel: UILabel!
+    @IBOutlet weak var rvLabel: UILabel!
+    @IBOutlet weak var rvAmountLabel: UILabel!
+    
     
     @IBOutlet weak var firstnameLabel: UILabel!
     @IBOutlet weak var telephoneLabel: UILabel!
@@ -50,7 +53,19 @@ class ResultViewController: UIViewController {
         carPriceLabel.text = numberformatter.string(from: NSNumber(value:result!.carPrice))
         downPaymentAmountLabel.text = numberformatter.string(from: NSNumber(value:result!.downPaymentAmount))
         financingAmountLabel.text = numberformatter.string(from: NSNumber(value:result!.financingAmount))
-        installmentLabel.text = "\(result!.installment * 12)"
+        
+        if result?.sabuydFlag == true {
+        
+            rvLabel.isHidden = false
+            rvAmountLabel.text = numberformatter.string(from: NSNumber(value: result!.rvAmount ))
+            installmentLabel.text = "\(result!.installment * 12 - 1)"
+            
+        }
+        else {
+            rvLabel.isHidden = true
+            rvAmountLabel.isHidden = true
+            installmentLabel.text = "\(result!.installment * 12)"
+        }
     }
     
     func displaySalesman() {

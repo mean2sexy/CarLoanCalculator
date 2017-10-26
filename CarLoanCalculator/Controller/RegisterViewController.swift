@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class RegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -65,6 +66,9 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
             selectedImageFromPicker = originalImage
         }
         
+        if let selectedImage = selectedImageFromPicker {
+            pictureProfileImageView.image = selectedImage
+        }
         
         dismiss(animated: true, completion: nil)
         
@@ -90,7 +94,6 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                 print("Form is not valid")
                 return
         }
-            
         
         //Create user
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
@@ -108,26 +111,56 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                 
                 print("Registeration Successful")
                 
-                //Database reference
-                let ref = Database.database().reference(fromURL: self.FIREBASE_DB_URL)
                 
-                //Declare Dictionary Values for insert in to Firebase Database
-                let values = ["firstname": firstname ,"nickname": nickname, "lastname": lastname, "email": email, "telephone" : telephone, "lineid": lineid ]
-                    
-                //Update user information eg. firsname lastname telephone into Firebase Database
-                ref.child("users").child(uid).setValue(values,withCompletionBlock: { (err,ref) in
-                    
-                    //If error occur
-                    if err != nil{
-                        print(err!)
-                    }
-                    print("Saved user successfully in Firebase DB")
-                })
+                //
+                let imageName = NSUUID().uuidString
                 
-                //Go to Calculator View Controller
-                self.performSegue(withIdentifier: "goToCalculator", sender: self)
+                //Create storage instance
+                let storage = Storage.storage()
+                
+                //Create storage reference
+                let storageRef = storage.reference().child("profile_images").child("\(imageName).png" )
+                if let uploadData = UIImagePNGRepresentation(self.pictureProfileImageView.image!) {
+                    storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                        
+                        if error != nil {
+                            print(error)
+                            return
+                        }
+                        
+                        if let profileImageURL = metadata?.downloadURL()?.absoluteString {
+                            //Declare Dictionary Values for insert in to Firebase Database
+                            let values = ["firstname": firstname ,"nickname": nickname, "lastname": lastname, "email": email, "telephone" : telephone, "lineid": lineid, "profileImageURL": profileImageURL ]
+                            
+                            self.registerUserIntoDatabaseWithUID(uid: uid,values: values as [String : AnyObject])
+                        }
+                    })
+                }
+                
+                
             }
         }
+    }
+    
+    private func registerUserIntoDatabaseWithUID (uid: String,values: [String: AnyObject]){
+        
+        //Database reference
+        let ref = Database.database().reference(fromURL: self.FIREBASE_DB_URL)
+        
+        //Update user information eg. firsname lastname telephone into Firebase Database
+        ref.child("users").child(uid).setValue(values,withCompletionBlock: { (err,ref) in
+            
+            //If error occur
+            if err != nil{
+                print(err!)
+            }
+            print("Saved user successfully in Firebase DB")
+        })
+        
+        //Go to Calculator View Controller
+        self.performSegue(withIdentifier: "goToCalculator", sender: self)
+        
+        
     }
     
 
